@@ -16,7 +16,8 @@
     "build:all": "npm run build:back && npm run build:front",
     "build:back": "npm run build -w @aqua-hero/backend",
     "build:front": "npm run build -w @aqua-hero/frontend",
-    "ng": "npm run ng -w @aqua-hero/frontend --"
+    "ng": "npm run ng -w @aqua-hero/frontend --",
+    "test": "npx ts-node src/backend/src/test.ts"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
