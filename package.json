@@ -1,0 +1,24 @@
+{
+  "name": "aqua-hero-demo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "src/backend",
+    "src/frontend"
+  ],
+  "scripts": {
+    "start:all": "concurrently \"npm run start:back\" \"npm run start:front\"",
+    "start:back": "npm run start -w @aqua-hero/backend",
+    "start:front": "npm run start -w @aqua-hero/frontend",
+    "dev:back": "npm run dev -w @aqua-hero/backend",
+    "dev:front": "npm run watch -w @aqua-hero/frontend",
+    "dev": "concurrently \"npm run dev:back\" \"npm run dev:front\"",
+    "build:all": "npm run build:back && npm run build:front",
+    "build:back": "npm run build -w @aqua-hero/backend",
+    "build:front": "npm run build -w @aqua-hero/frontend",
+    "ng": "npm run ng -w @aqua-hero/frontend --"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
