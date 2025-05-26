@@ -9,7 +9,15 @@ dotenv.config({ path: '../../.env' });
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+const corsOptions = {
+  origin: ['http://localhost:4200', 'https://aquahero.demo'], // Angular dev server y producción
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  maxAge: 86400
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const aiguaService = new Aigua(
