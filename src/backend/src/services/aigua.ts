@@ -6,40 +6,57 @@ export class Aigua {
   private openai: OpenAI;
 
   constructor(apiKey: string, referer: string, title: string) {
+    if (!apiKey) {
+      throw new Error('API key is required');
+    }
+
     this.openai = new OpenAI({
       apiKey,
       baseURL: 'https://openrouter.ai/api/v1',
       defaultHeaders: {
-        'HTTP-Referer': referer, // obligatorio para OpenRouter
-        'X-Title': title,        // nombre de tu app/proyecto
+        'HTTP-Referer': referer,
+        'X-Title': title,
+        'Authorization': `Bearer ${apiKey}`
       },
     });
   }
 
   async process(request: AiguaRequest): Promise<AiguaResponse> {
     try {
+      if (!request.prompt) {
+        throw new Error('Prompt is required');
+      }
+
       const completion = await this.openai.chat.completions.create({
-        model: request.model || 'nousresearch/hermes-3-llama-3.1-70b', // modelo multilingüe
+        model: 'nousresearch/hermes-3-llama-3.1-70b',
         messages: [
           {
             role: 'system',
-            content: 'Responde siempre en español de forma clara, educativa y concisa.',
+            content: 'Eres un asistente amigable experto en ahorro de agua. Da consejos cortos y prácticos en español. ' +
+                     'Máximo 2 frases. Incluye de vez en cuando datos curiosos sobre el agua. Sé directo y motivador.'
           },
           {
             role: 'user',
             content: request.prompt,
           },
         ],
+        max_tokens: 100,
+        temperature: 0.7
       });
+
+      if (!completion.choices[0].message.content) {
+        throw new Error('No response content received');
+      }
 
       return {
         success: true,
-        data: completion.choices[0].message,
+        data: completion.choices[0].message.content
       };
     } catch (error: any) {
+      console.error('Error al procesar la solicitud de consejo:', error);
       return {
         success: false,
-        error: error.message || 'Error desconocido',
+        error: error.message || 'No se pudo obtener el consejo'
       };
     }
   }
