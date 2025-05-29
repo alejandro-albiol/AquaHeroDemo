@@ -33,7 +33,7 @@ async function testAiguaAdvice() {
     const prompt = promptGenerator.generatePrompt();
     console.log('🎯 Prompt generado:', prompt);
     
-    const response = await aigua.process({ prompt });
+    const response = await aigua.process();
 
     if (response.success) {
       console.log('✅ Consejo generado:', response.data);

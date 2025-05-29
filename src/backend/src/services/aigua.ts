@@ -1,9 +1,10 @@
 import OpenAI from 'openai';
-import { AiguaRequest } from '../shared/aiguaRequest';
 import { AiguaResponse } from '../shared/aiguaResponse';
+import { PromptGenerator } from './promptGenerator';
 
 export class Aigua {
   private openai: OpenAI;
+  private promptGenerator: PromptGenerator;
 
   constructor(apiKey: string, referer: string, title: string) {
     if (!apiKey) {
@@ -19,11 +20,13 @@ export class Aigua {
         'Authorization': `Bearer ${apiKey}`
       },
     });
+    this.promptGenerator = new PromptGenerator();
   }
 
-  async process(request: AiguaRequest): Promise<AiguaResponse> {
+  async process(): Promise<AiguaResponse> {
     try {
-      if (!request.prompt) {
+      const prompt = this.promptGenerator.generatePrompt();
+      if (!prompt) {
         throw new Error('Prompt is required');
       }
 
@@ -37,7 +40,7 @@ export class Aigua {
           },
           {
             role: 'user',
-            content: request.prompt,
+            content: prompt,
           },
         ],
         max_tokens: 100,
