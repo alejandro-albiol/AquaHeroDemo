@@ -1,0 +1,142 @@
+/* === CSS Reset === */
+
+/* Box sizing rules */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default body margin */
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  background-color: var(--color-surface);
+
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+/* Remove list styles on ul, ol elements */
+ul, ol {
+  list-style: none;
+}
+
+/* Remove default link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reset images and media */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Inherit fonts for form elements */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Buttons without styles */
+button {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* Ensure consistent heading spacing */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+@media (pointer: coarse) and (max-width: 768px) {
+  body {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+}
+
+/* === Design system === */
+
+:root {
+  /* Colors */
+  --color-primary: #01537e;
+  --color-primary-hover: #41beec;
+  --color-secondary: #36b37e;
+  --color-accent: #ffab00;
+
+  --color-background: #ffffff;
+  --color-surface: #f4f5f7;
+  --color-border: #dfe1e6;
+
+  --color-text: #172b4d;
+  --color-text-muted: #6b778c;
+  --color-text-inverse: #ffffff;
+  --color-error: #de350b;
+  --color-error-bg: #e64d2793;
+  --color-success: #36b37e;
+  --color-warning: #ffab00;
+  --color-warning-bg: #ffaa005b;
+  --color-info: #0052cc;
+
+  /* Typography */
+  --font-family-base: 'Comfortaa', 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 3rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+  /* Z-Index */
+  --z-index-dropdown: 1000;
+  --z-index-modal: 1050;
+  --z-index-toast: 1100;
+  --z-index-tooltip: 1200;
+
+  /* Breakpoints */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 992px;
+  --breakpoint-lg: 1200px;
+  --breakpoint-xl: 1440px;
+}

@@ -3,12 +3,11 @@ import { PromptGenerator } from '../services/promptGenerator';
 import dotenv from 'dotenv';
 import path from 'path';
 
-// Cargar variables de entorno desde el archivo .env
 const envPath = path.resolve(__dirname, '../../../../.env');
 dotenv.config({ path: envPath });
 
 async function testAiguaAdvice() {
-  // Verificar API key antes de ejecutar el test
+
   if (!process.env.API_KEY) {
     console.error('❌ Error: API_KEY no encontrada en las variables de entorno');
     console.log('📝 Asegúrate de que:');
@@ -45,5 +44,4 @@ async function testAiguaAdvice() {
   }
 }
 
-// Ejecutar el test
 testAiguaAdvice();

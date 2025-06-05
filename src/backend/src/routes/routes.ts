@@ -18,7 +18,7 @@ const mockDataService = new MockDataService();
 aiguaRouter.get('/advice', async (_req, res) => {
   try {
     const prompt = promptGenerator.generatePrompt();
-    const response = await aigua.process({ prompt });
+    const response = await aigua.process();
 
     res.json({
       success: true,

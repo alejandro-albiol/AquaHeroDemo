@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES2020",
+    "esModuleInterop": true,
+    "types": ["jest", "node"],
+    "outDir": "./out-tsc/spec"
+  },
+  "files": ["src/setup.jest.ts"],
+  "include": ["src/**/*.spec.ts", "src/**/*.test.ts"]
+}

@@ -1,0 +1,15 @@
+<div class="dashboard-container">
+  <div class="cards-container">
+    @for(participant of participants; track $index) {
+    <div class="card">
+      <div class="card-header">
+        <span class="rank">#{{ $index + 1 }}</span>
+      </div>
+      <div class="card-body">
+        <h2>{{ participant.name }}</h2>
+        <p>Puntos: {{ participant.points }}</p>
+      </div>
+    </div>
+    }
+  </div>
+</div>
