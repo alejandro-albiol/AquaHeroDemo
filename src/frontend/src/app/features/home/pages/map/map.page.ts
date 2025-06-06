@@ -19,10 +19,5 @@ export class MapPage {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http
-      .get('/assets/sections/spain_comunities.geojson')
-      .subscribe((res) => {
-        this.geo = res;
-      });
   }
 }
