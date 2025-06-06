@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.page.html',
-  styleUrls: ['./dashboard.page.css'],
+  selector: 'app-ranking',
+  templateUrl: './ranking.page.html',
+  styleUrls: ['./ranking.page.css'],
 })
-export class DashboardPage {
+export class RankingPage {
   participants = [
     { name: 'Demo', points: 1200 },
     { name: 'Demo', points: 1100 },

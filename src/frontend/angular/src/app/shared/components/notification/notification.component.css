@@ -1,0 +1,71 @@
+.notification-stack {
+  position: fixed;
+  top: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-index-toast);
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.notification-container {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  min-width: 320px;
+  max-width: 90vw;
+  text-align: center;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  position: relative;
+
+  animation: slideIn 0.4s ease-out;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Entrada */
+@keyframes slideIn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Salida */
+.leaving {
+  animation: fadeOutSlideUp 0.4s ease forwards;
+}
+
+@keyframes fadeOutSlideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+/* Tipos con colores del sistema */
+.notification-container.success {
+  background-color: var(--color-success);
+  color: var(--color-text-inverse);
+}
+
+.notification-container.error {
+  background-color: var(--color-error);
+  color: var(--color-text-inverse);
+}
+
+.notification-container.warning {
+  background-color: var(--color-warning);
+  color: var(--color-text);
+}

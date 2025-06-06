@@ -1,0 +1,26 @@
+.home-layout {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-content {
+  padding: 0 0 var(--space-lg) var(--space-lg);
+  width: 100%;
+  max-width: 900px;
+}
+

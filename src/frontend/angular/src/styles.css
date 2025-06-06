@@ -1,7 +1,9 @@
 /* === CSS Reset === */
 
 /* Box sizing rules */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -19,11 +21,18 @@ body {
 }
 
 html {
-  overflow-y: scroll;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Opera */
 }
 
 /* Remove list styles on ul, ol elements */
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -34,14 +43,21 @@ a {
 }
 
 /* Reset images and media */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
 /* Inherit fonts for form elements */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
   color: inherit;
   background: none;
@@ -56,7 +72,12 @@ button {
 }
 
 /* Ensure consistent heading spacing */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: inherit;
   font-size: inherit;
 }
@@ -93,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
   --color-info: #0052cc;
 
   /* Typography */
-  --font-family-base: 'Comfortaa', 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+  --font-family-base: "Comfortaa", "Inter", "Segoe UI", "Roboto", sans-serif;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;

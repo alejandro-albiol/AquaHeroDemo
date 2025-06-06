@@ -1,0 +1,16 @@
+<header class="menu-header">
+  <a [routerLink]="'/home'">
+    <div class="logo">
+      <span>AquaHero</span>
+    </div>
+  </a>
+  <a [routerLink]="'/user'">
+    <div class="user-info">
+      <div class="user-details">
+        <p class="user-name">{{ user.name }}</p>
+        <p class="user-email">{{ user.email }}</p>
+      </div>
+      <img [src]="user.avatar" alt="User Avatar" class="user-avatar" />
+    </div>
+  </a>
+</header>

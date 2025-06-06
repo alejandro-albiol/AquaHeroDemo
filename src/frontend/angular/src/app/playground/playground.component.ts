@@ -1,14 +1,14 @@
-import { AsyncPipe, JsonPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { DashboardService } from '@services/demo/dashboard.service';
+import { DashboardService } from '@core/services/demo/dashboard.service';
 
-import { MockData } from '@services/demo/models/dashboard.model';
+import { MockData } from '@core/services/demo/models/dashboard.model';
 
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-playground',
-  imports: [AsyncPipe, JsonPipe],
+  imports: [AsyncPipe],
   templateUrl: './playground.component.html',
   styleUrl: './playground.component.css',
 })
