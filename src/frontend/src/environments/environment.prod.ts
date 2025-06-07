@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.tuempresa.com/api/v1',
+  apiUrl: '/api/v1',  // Relative path since backend serves frontend
   envName: 'production'
 };

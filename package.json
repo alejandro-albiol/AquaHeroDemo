@@ -16,6 +16,8 @@
     "build:all": "npm run build:back && npm run build:front",
     "build:back": "npm run build -w @aqua-hero/backend",
     "build:front": "npm run build -w @aqua-hero/frontend",
+    "build:prod": "npm run build:front && npm run build:back",
+    "start:prod": "node dist/backend/src/server.prod.js",
     "ng": "npm run ng -w @aqua-hero/frontend --",
     "test": "npx ts-node src/backend/src/test/test.ts"
   },

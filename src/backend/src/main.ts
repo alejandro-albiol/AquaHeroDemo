@@ -23,12 +23,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-const aiguaService = new Aigua(
-  process.env.API_KEY || '',
-  'https://aquahero.demo',
-  'AquaHero Demo'
-);
-
 app.get('/', (req, res) => {
   res.json({ message: 'AquaHero API is running!' });
 });

@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: aquahero-demo
+    env: node
+    buildCommand: npm run build:prod
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: API_KEY
+        sync: false
