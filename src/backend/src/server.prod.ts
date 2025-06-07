@@ -6,28 +6,31 @@ import aiguaRouter from './routes/routes';
 const app = express();
 const port = process.env.PORT || 3000;
 
-// CORS configuration for production
+// CORS configuration
 const corsOptions = {
   origin: process.env.FRONTEND_URL || '*',
   methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-  maxAge: 86400
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// API routes
+// API routes first
 app.use('/api/v1', aiguaRouter);
 
-// Serve Angular static files
-const angularDistPath = path.join(__dirname, '../../frontend/dist/browser');
-app.use(express.static(angularDistPath));
+// Serve static files from Angular app
+const angularPath = path.join(__dirname, '../../../src/frontend/dist/aquahero/browser');
+app.use(express.static(angularPath));
 
-// SPA fallback
+// API fallback - handle all API routes
+app.all('/api/*', (req, res) => {
+  res.status(404).json({ message: 'API endpoint not found' });
+});
+
+// Angular app fallback - send index.html for all other routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(angularDistPath, 'index.html'));
+  res.sendFile(path.join(angularPath, 'index.html'));
 });
 
 app.listen(port, () => {
