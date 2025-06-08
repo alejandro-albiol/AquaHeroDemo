@@ -24,3 +24,8 @@
   max-width: 900px;
 }
 
+.footer {
+  position: fixed;
+  bottom: 0;
+}
+

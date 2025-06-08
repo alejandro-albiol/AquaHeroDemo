@@ -20,7 +20,5 @@ export class HomeLayoutComponent {
       icon: 'assets/icons/dashboard.svg',
       route: '/home/ranking',
     },
-    { label: 'Empresas', icon: 'assets/icons/store.svg', route: '/home/enterprice' },
-    { label: 'Noticias', icon: 'assets/icons/newspaper.svg', route: '/home/news' },
   ];
 }

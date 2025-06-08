@@ -1,12 +1,5 @@
 <div class="container">
-  @if(isMobile) {
-  <img
-    src="./assets/icons/burger-menu.svg"
-    alt="Menu Desplegable"
-    class="burger-menu"
-    (click)="showMenu()"
-  />
-  } @else {
+  @if(!isMobile) {
   <nav class="menu-sidebar">
     <ul>
       @for(item of menuItems; track $index) {

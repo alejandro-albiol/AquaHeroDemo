@@ -4,6 +4,7 @@ import { MapHeatComponent } from './components/map-heat/map-heat.component';
 
 @Component({
   selector: 'app-map',
+  standalone: true,
   imports: [MapHeatComponent],
   templateUrl: './map.page.html',
   styleUrl: './map.page.css',
@@ -19,5 +20,10 @@ export class MapPage {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
+    this.http
+      .get('/assets/sections/spain_comunities.geojson')
+      .subscribe((res) => {
+        this.geo = res;
+      });
   }
 }

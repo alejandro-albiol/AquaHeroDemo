@@ -1,4 +1,3 @@
-
 .menu-header {
   display: flex;
   align-items: center;
@@ -47,4 +46,35 @@
 .user-email {
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
+}
+
+/* Mobile - pequeño (teléfonos pequeños) */
+@media (max-width: 320px) {
+}
+
+/* Mobile - estándar (teléfonos) */
+@media (max-width: 480px) {
+  .menu-header {
+    justify-content: space-between;
+  }
+}
+
+/* Tablet - vertical (portrait) */
+@media (min-width: 481px) and (max-width: 767px) {
+}
+
+/* Tablet - horizontal (landscape) */
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* Laptop estándar */
+@media (min-width: 1024px) and (max-width: 1279px) {
+}
+
+/* Desktop mediano */
+@media (min-width: 1280px) and (max-width: 1599px) {
+}
+
+/* Desktop grande */
+@media (min-width: 1600px) {
 }
