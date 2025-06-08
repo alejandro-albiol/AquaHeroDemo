@@ -28,3 +28,22 @@
   font-size: 1.25rem;
   font-weight: 700;
 }
+
+.skeleton-loader {
+  display: inline-block;
+  width: 80%;
+  height: 1.2em;
+  background: linear-gradient(90deg, #ececec63 25%, #f3f3f363 37%, #ececec63 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.2s infinite linear;
+  border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

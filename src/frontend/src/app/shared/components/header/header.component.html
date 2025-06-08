@@ -16,10 +16,17 @@
   <a [routerLink]="'/user'">
     <div class="user-info">
       <div class="user-details">
-        <p class="user-name">{{ user.name }}</p>
-        <p class="user-email">{{ user.email }}</p>
+        @if(data$ | async; as data) {
+        <p class="user-name">{{ data.data.users[randomUser()].name }}</p>
+        } @else {
+        <span class="skeleton-loader"></span>
+        } @if(data$ | async; as data) {
+        <p class="user-email">{{ data.data.users[randomUser()].name + '@gmail.com' }}</p>
+        } @else {
+        <span class="skeleton-loader"></span>
+        }
       </div>
-      <img [src]="user.avatar" alt="User Avatar" class="user-avatar" />
+      <img src="assets/icons/person.svg" alt="User Avatar" class="user-avatar" />
     </div>
   </a>
 </header>

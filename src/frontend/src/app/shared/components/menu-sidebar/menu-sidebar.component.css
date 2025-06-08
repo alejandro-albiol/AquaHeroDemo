@@ -23,16 +23,12 @@
   border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--color-text);
-  transition: background-color 0.3s ease;
 }
 
 .menu-sidebar a:hover {
-  background-color: var(--color-surface-hover);
-}
-
-.menu-sidebar a.active {
-  background-color: var(--color-primary);
-  color: var(--color-text-inverse);
+  color: var(--color-primary-hover);
+  filter: brightness(0) saturate(100%) invert(77%) sepia(22%) saturate(6541%)
+    hue-rotate(165deg) brightness(102%) contrast(85%);
 }
 
 .menu-sidebar img {
@@ -55,7 +51,7 @@
 
 /* Mobile - estándar (teléfonos) */
 @media (max-width: 480px) {
-  .container{
+  .container {
     position: absolute;
     width: 100%;
     height: calc(100% - 94px);

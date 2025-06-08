@@ -4,7 +4,10 @@
     <h3 class="ia-advice-card__title">Consejo AIgua</h3>
   </div>
   <p class="ia-advice-card__content">
-    Para ahorrar agua, cierra el grifo mientras te cepillas los dientes.
-    Pequeños gestos hacen la diferencia.
+    @if(data$ | async; as data) {
+    {{ data.advice }}
+    } @else {
+      <span class="skeleton-loader"></span>
+    }
   </p>
 </div>

@@ -1,5 +1,5 @@
 @if(!isMobile || isOpen()) {
-<div @slideInOut class="container">
+<div [@slideInOut]="isMobile" class="container">
   <nav class="menu-sidebar">
     <ul>
       @for(item of menuStaticItems; track $index) {

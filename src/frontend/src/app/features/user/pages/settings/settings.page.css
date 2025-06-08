@@ -1,0 +1,53 @@
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 24px 24px 0 0;
+}
+
+h1 {
+  text-align: center;
+  color: #01537e;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1.2rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #e9f3f8;
+  color: #333;
+}
+
+input[readonly] {
+  cursor: not-allowed;
+}
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--color-error);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:active {
+  background-color: var(--color-error-bg);
+}
