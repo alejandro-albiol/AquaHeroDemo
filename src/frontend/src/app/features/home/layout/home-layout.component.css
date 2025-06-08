@@ -1,5 +1,6 @@
 .home-layout {
   display: flex;
+  flex-direction: column;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -22,12 +23,6 @@
   padding: 0 0 var(--space-lg) var(--space-lg);
   width: 100%;
   max-width: 900px;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 }
 
 /* Mobile - pequeño (teléfonos pequeños) */
