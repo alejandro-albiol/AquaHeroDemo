@@ -2,7 +2,7 @@ import { Component, HostListener, WritableSignal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ShowMenuStateService } from '@core/utils/showMenuState.service';
 import { AsyncPipe } from '@angular/common';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { MockData } from '@core/services/demo/models/dashboard.model';
 import { DashboardService } from '@core/services/demo/dashboard.service';
 import { RandomUserService } from '@core/utils/randomNumberStat.service';
@@ -29,7 +29,9 @@ export class HeaderComponent {
 
   ngOnInit() {
     this.verificarTamanioPantalla();
-    this.data$ = this.dashboardService.getData();
+    this.data$ = this.dashboardService
+      .getData()
+      .pipe(tap((data) => console.log(data)));
   }
 
   @HostListener('window:resize', ['$event'])

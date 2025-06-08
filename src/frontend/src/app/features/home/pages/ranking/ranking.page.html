@@ -1,7 +1,8 @@
+@if(data$ | async; as data) {
 <div class="dashboard-container">
   <div class="cards-container">
-    @for(participant of participants; track $index) { @if($index === 3){
-      <app-adviser></app-adviser>
+    @for(participant of data; track $index) { @if($index === 3){
+    <app-adviser></app-adviser>
     }
     <div
       class="card"
@@ -12,11 +13,6 @@
      }"
     >
       <div class="user">
-        <img
-          src="assets/icons/person.svg"
-          alt="User Avatar"
-          class="user-avatar"
-        />
         <span class="rank">{{ $index + 1 }}</span>
         <h2>{{ participant.name }}</h2>
       </div>
@@ -25,3 +21,4 @@
     }
   </div>
 </div>
+}

@@ -1,79 +1,93 @@
 export interface User {
-  id: number;
-  name: string;
-  waterSaved: number;
-  streak: number;
+  id: number
+  name: string
+  waterSaved: number
+  streak: number
 }
 
 export interface Zone {
-  id: string;
-  name: string;
-  waterLevel: 'Alto' | 'Medio' | 'Bajo';
-  restrictions: boolean;
-  savingTips: number;
+  id: string
+  name: string
+  waterLevel: 'Alto' | 'Medio' | 'Bajo'
+  restrictions: boolean
+  savingTips: number
 }
 
 export interface Statistics {
-  totalWaterSaved: number;
-  activeUsers: number;
-  restrictedZones: number;
-  tipsShared: number;
+  totalWaterSaved: number
+  activeUsers: number
+  restrictedZones: number
+  tipsShared: number
 }
 
 export interface MockData {
-  users: User[];
-  zones: Zone[];
-  statistics: Statistics;
+  users: User[]
+  zones: Zone[]
+  statistics: Statistics
 }
 
 export class MockDataService {
-  private mockData: MockData;
+  private mockData: MockData
 
   constructor() {
     this.mockData = {
       users: [
         { id: 1, name: 'Ana', waterSaved: 150, streak: 7 },
         { id: 2, name: 'Carlos', waterSaved: 200, streak: 15 },
-        { id: 3, name: 'María', waterSaved: 180, streak: 5 }
+        { id: 3, name: 'María', waterSaved: 180, streak: 5 },
       ],
       zones: [
-        { 
+        {
           id: 'cs-001',
           name: 'Castelló Centro',
           waterLevel: 'Medio',
           restrictions: true,
-          savingTips: 3
+          savingTips: 3,
         },
         {
           id: 'cs-002',
           name: 'Castelló Norte',
           waterLevel: 'Bajo',
           restrictions: true,
-          savingTips: 5
-        }
+          savingTips: 5,
+        },
+        {
+          id: 'cs-003',
+          name: 'Castelló Sur',
+          waterLevel: 'Alto',
+          restrictions: true,
+          savingTips: 2,
+        },
+        {
+          id: 'cs-004',
+          name: 'Castelló Este',
+          waterLevel: 'Bajo',
+          restrictions: true,
+          savingTips: 3,
+        },
       ],
       statistics: {
         totalWaterSaved: 530,
         activeUsers: 3,
         restrictedZones: 2,
-        tipsShared: 150
-      }
-    };
+        tipsShared: 150,
+      },
+    }
   }
 
   getData(): MockData {
-    return this.mockData;
+    return this.mockData
   }
 
   getUsers(): User[] {
-    return this.mockData.users;
+    return this.mockData.users
   }
 
   getZones(): Zone[] {
-    return this.mockData.zones;
+    return this.mockData.zones
   }
 
   getStatistics(): Statistics {
-    return this.mockData.statistics;
+    return this.mockData.statistics
   }
 }

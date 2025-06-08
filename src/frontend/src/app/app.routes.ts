@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { PlaygroundComponent } from './playground/playground.component';
 
 export const routes: Routes = [
   {
@@ -16,9 +15,5 @@ export const routes: Routes = [
     path: 'user',
     loadChildren: () =>
       import('./features/user/user.routes').then((m) => m.userRoutes),
-  },
-  {
-    path: 'playground',
-    component: PlaygroundComponent,
-  },
+  }
 ];

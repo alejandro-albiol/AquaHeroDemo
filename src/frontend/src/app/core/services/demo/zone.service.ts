@@ -4,17 +4,22 @@ import { Observable } from 'rxjs';
 
 import { environment } from '@environments/environment';
 
-import { MockData, Statistics, User, Zone } from './models/dashboard.model';
+import { Zone } from './models/dashboard.model';
+
+interface IZone {
+  success: boolean;
+  zones: Zone[]
+}
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
-  private readonly apiUrl = `${environment.apiUrl}/advice`;
+export class ZoneService {
+  private readonly apiUrl = `${environment.apiUrl}/zones`;
 
   constructor(private http: HttpClient) {}
 
-  advice(): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}`);
+  getZones(): Observable<IZone> {
+    return this.http.get<IZone>(`${this.apiUrl}`);
   }
 }
