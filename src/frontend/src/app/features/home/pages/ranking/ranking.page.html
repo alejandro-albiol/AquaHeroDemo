@@ -1,16 +1,7 @@
 <div class="dashboard-container">
   <div class="cards-container">
     @for(participant of participants; track $index) { @if($index === 3){
-    <div class="ia-advice-card">
-      <div class="ia-advice-card__header">
-        <div class="ia-advice-card__icon">💧</div>
-        <h3 class="ia-advice-card__title">Consejo AIgua</h3>
-      </div>
-      <p class="ia-advice-card__content">
-        Para ahorrar agua, cierra el grifo mientras te cepillas los dientes.
-        Pequeños gestos hacen la diferencia.
-      </p>
-    </div>
+      <app-adviser></app-adviser>
     }
     <div
       class="card"

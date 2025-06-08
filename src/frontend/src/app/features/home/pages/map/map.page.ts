@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MapHeatComponent } from './components/map-heat/map-heat.component';
+import { AdviserComponent } from '@shared/components/adviser/adviser.component';
 
 @Component({
   selector: 'app-map',
   standalone: true,
-  imports: [MapHeatComponent],
+  imports: [MapHeatComponent, AdviserComponent],
   templateUrl: './map.page.html',
   styleUrl: './map.page.css',
 })
@@ -21,7 +22,7 @@ export class MapPage {
 
   ngOnInit() {
     this.http
-      .get('/assets/sections/spain_comunities.geojson')
+      .get('/assets/sections/cp_hoods.geojson')
       .subscribe((res) => {
         this.geo = res;
       });

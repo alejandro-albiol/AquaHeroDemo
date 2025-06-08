@@ -1,5 +1,14 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {
+  Component,
+  HostListener,
+  Input,
+  OnInit,
+  WritableSignal,
+} from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { ShowMenuStateService } from '@core/utils/showMenuState.service';
+import { slideInOut } from './animations/slide-in-out.animation';
+import { Subscription } from 'rxjs';
 
 interface menuItems {
   label: string;
@@ -12,29 +21,50 @@ interface menuItems {
   imports: [RouterModule],
   templateUrl: './menu-sidebar.component.html',
   styleUrl: './menu-sidebar.component.css',
+  animations: [slideInOut],
 })
 export class MenuSidebarComponent implements OnInit {
   @Input()
   menuItems: menuItems[];
 
-  isOpen: boolean = false;
+  private sub = new Subscription();
+
+  isOpen: WritableSignal<boolean>;
 
   isMobile: boolean = false;
 
-  ngOnInit() {
-    this.verificarTamanioPantalla();
+  menuStaticItems: menuItems[];
+
+  constructor(
+    private showMenuState: ShowMenuStateService,
+    private router: Router
+  ) {
+    this.isOpen = this.showMenuState.isOpen;
   }
 
-  showMenu() {
-    this.isOpen = !this.isOpen;
+  ngOnInit() {
+    this.verifySizeScreen();
+    this.menuStaticItems = [
+      { label: 'Home', icon: 'assets/icons/home.svg', route: '/home' },
+      { label: 'Perfil', icon: 'assets/icons/person.svg', route: '/user' },
+    ];
+    this.sub.add(
+      this.router.events.subscribe(() => {
+        this.showMenuState.closeMenu();
+      })
+    );
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    this.verificarTamanioPantalla();
+    this.verifySizeScreen();
   }
 
-  verificarTamanioPantalla() {
+  verifySizeScreen() {
     this.isMobile = window.innerWidth <= 600;
   }
 }

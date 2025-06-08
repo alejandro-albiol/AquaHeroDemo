@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ShowMenuStateService } from '@core/utils/showMenuState.service';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,8 @@ export class HeaderComponent {
 
   isMobile: boolean = false;
 
+  constructor(private showMenuState: ShowMenuStateService) {}
+
   ngOnInit() {
     this.verificarTamanioPantalla();
   }
@@ -27,5 +30,9 @@ export class HeaderComponent {
 
   verificarTamanioPantalla() {
     this.isMobile = window.innerWidth <= 600;
+  }
+
+  showMenu() {
+    this.showMenuState.setState();
   }
 }

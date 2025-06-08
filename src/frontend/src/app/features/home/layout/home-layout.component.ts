@@ -14,7 +14,7 @@ import { MenuSidebarComponent } from '@shared/components/menu-sidebar/menu-sideb
 })
 export class HomeLayoutComponent {
   menuItems = [
-    { label: 'Inicio', icon: 'assets/icons/home.svg', route: '/home/map' },
+    { label: 'Map', icon: 'assets/icons/map.svg', route: '/home/map' },
     {
       label: 'Ranking',
       icon: 'assets/icons/dashboard.svg',

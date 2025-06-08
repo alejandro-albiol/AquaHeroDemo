@@ -39,3 +39,48 @@
   width: 24px;
   height: 24px;
 }
+
+.splitter {
+  width: 100%;
+  height: 2px;
+  margin: 20px 0 20px 0;
+  padding: 0 10px 0 10px;
+  border-radius: 40%;
+  background-color: var(--color-border);
+}
+
+/* Mobile - pequeño (teléfonos pequeños) */
+@media (max-width: 320px) {
+}
+
+/* Mobile - estándar (teléfonos) */
+@media (max-width: 480px) {
+  .container{
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 94px);
+    background-color: var(--color-surface);
+    padding: 20px;
+    z-index: 99999;
+  }
+}
+
+/* Tablet - vertical (portrait) */
+@media (min-width: 481px) and (max-width: 767px) {
+}
+
+/* Tablet - horizontal (landscape) */
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* Laptop estándar */
+@media (min-width: 1024px) and (max-width: 1279px) {
+}
+
+/* Desktop mediano */
+@media (min-width: 1280px) and (max-width: 1599px) {
+}
+
+/* Desktop grande */
+@media (min-width: 1600px) {
+}

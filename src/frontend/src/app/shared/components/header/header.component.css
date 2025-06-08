@@ -48,6 +48,10 @@
   color: var(--color-text-muted);
 }
 
+.burger-menu {
+  cursor: pointer;
+}
+
 /* Mobile - pequeño (teléfonos pequeños) */
 @media (max-width: 320px) {
 }

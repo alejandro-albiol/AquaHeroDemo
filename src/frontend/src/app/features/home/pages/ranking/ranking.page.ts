@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { AdviserComponent } from '@shared/components/adviser/adviser.component';
 
 @Component({
   selector: 'app-ranking',
-  imports: [CommonModule],
+  imports: [CommonModule, AdviserComponent],
   templateUrl: './ranking.page.html',
   styleUrls: ['./ranking.page.css'],
 })

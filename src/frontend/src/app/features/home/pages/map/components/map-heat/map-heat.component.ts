@@ -1,7 +1,12 @@
-import { Component, Input, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  AfterViewInit,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import maplibregl, {
-} from 'maplibre-gl';
+import maplibregl from 'maplibre-gl';
 
 @Component({
   selector: 'app-map-heat',
@@ -9,7 +14,7 @@ import maplibregl, {
   templateUrl: './map-heat.component.html',
   styleUrls: ['./map-heat.component.css'],
 })
-export class MapHeatComponent implements AfterViewInit {
+export class MapHeatComponent implements AfterViewInit, OnChanges {
   @Input() geoJsonData!: any;
   @Input() consumptionData!: Record<string, number>;
 
@@ -23,8 +28,20 @@ export class MapHeatComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit(): void {
+    if (!this.geoJsonData) {
+      console.warn('geoJsonData aún no está disponible');
+      return;
+    }
+
     this.assignRandomColors();
     this.initMap();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['geoJsonData'] && this.geoJsonData) {
+      this.assignRandomColors();
+      this.initMap();
+    }
   }
 
   private initMap() {
@@ -46,19 +63,35 @@ export class MapHeatComponent implements AfterViewInit {
         type: 'fill',
         source: 'regions',
         paint: {
-          'fill-color': ['get', 'randomColor'],
+          'fill-color': [
+            'case',
+            ['has', 'randomColor'],
+            ['get', 'randomColor'],
+            '#cccccc',
+          ],
           'fill-opacity': 0.5,
           'fill-outline-color': '#222',
         },
       });
     });
+
+    setTimeout(() => {
+      this.map.flyTo({
+        center: [-0.041325, 39.986355],
+        zoom: 13.2,
+        speed: 1.2,
+        curve: 1.5,
+        essential: true,
+      });
+    }, 2000);
   }
 
   // TODO: hacer que no sea random la asignación de colores
 
   private assignRandomColors() {
     const colors = this.ranges.map((r) => r.color);
-    this.geoJsonData?.features.forEach((feature: any) => {
+    this.geoJsonData = structuredClone(this.geoJsonData); // o JSON.parse(JSON.stringify(...))
+    this.geoJsonData.features.forEach((feature: any) => {
       feature.properties.randomColor = this.getRandomColor(colors);
     });
   }

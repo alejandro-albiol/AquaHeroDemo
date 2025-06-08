@@ -1,6 +1,17 @@
-<div class="container">
-  @if(!isMobile) {
+@if(!isMobile || isOpen()) {
+<div @slideInOut class="container">
   <nav class="menu-sidebar">
+    <ul>
+      @for(item of menuStaticItems; track $index) {
+      <li [routerLinkActive]="'active'">
+        <a [routerLink]="item.route">
+          <img [src]="item.icon" alt="{{ item.label }} Icon" />
+          <span>{{ item.label }}</span>
+        </a>
+      </li>
+      }
+    </ul>
+    <div class="splitter"></div>
     <ul>
       @for(item of menuItems; track $index) {
       <li [routerLinkActive]="'active'">
@@ -12,5 +23,5 @@
       }
     </ul>
   </nav>
-  }
 </div>
+}
