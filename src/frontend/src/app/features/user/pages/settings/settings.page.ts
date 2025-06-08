@@ -14,17 +14,14 @@ import { RandomUserService } from '@core/utils/randomNumberStat.service';
 })
 export class SettingsPage {
   data$: Observable<MockData>;
-  randomUser: WritableSignal<number>;
+  randomUser: number;
 
   constructor(
     private readonly dashboardService: DashboardService,
     private readonly notificationService: NotificationService,
     private readonly randomUserService: RandomUserService
   ) {
-    this.randomUser = this.randomUserService.randomUser;
-  }
-
-  ngOnInit() {
+    this.randomUser = this.randomUserService.randomUser();
     this.data$ = this.dashboardService.getData();
   }
 

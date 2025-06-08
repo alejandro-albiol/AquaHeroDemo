@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class RandomUserService {
-  randomUser = signal<number>(0);
+  randomUser = signal<number>(1);
 
   constructor() {
     this.randomUser.set(Math.floor(Math.random() * 3) + 1);

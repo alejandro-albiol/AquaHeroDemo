@@ -19,12 +19,12 @@ export class MapHeatComponent implements AfterViewInit, OnChanges {
   @Input() consumptionData!: Record<string, number>;
 
   map!: maplibregl.Map;
+  popup: maplibregl.Popup;
+
   ranges = [
-    { min: 0, max: 100, color: '#fee5d9' },
-    { min: 100, max: 500, color: '#fcae91' },
-    { min: 500, max: 1000, color: '#fb6a4a' },
-    { min: 1000, max: 5000, color: '#de2d26' },
-    { min: 5000, max: Infinity, color: '#a50f15' },
+    { gasto: 'Bajo', color: '#4FC3F7' },
+    { gasto: 'Medio', color: '#26A69A' },
+    { gasto: 'Alto', color: '#EF5350' },
   ];
 
   ngAfterViewInit(): void {
@@ -32,14 +32,17 @@ export class MapHeatComponent implements AfterViewInit, OnChanges {
       console.warn('geoJsonData aún no está disponible');
       return;
     }
-
-    this.assignRandomColors();
+    this.assignRandom();
     this.initMap();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['geoJsonData'] && this.geoJsonData) {
-      this.assignRandomColors();
+    if (
+      changes['geoJsonData'] &&
+      !changes['geoJsonData'].firstChange &&
+      this.geoJsonData
+    ) {
+      this.assignRandom();
       this.initMap();
     }
   }
@@ -50,6 +53,10 @@ export class MapHeatComponent implements AfterViewInit, OnChanges {
       style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
       center: [-3.7038, 40.4168],
       zoom: 5,
+      maxBounds: [
+        [-10, 34],
+        [5, 45.5],
+      ],
     });
 
     this.map.on('load', () => {
@@ -75,6 +82,42 @@ export class MapHeatComponent implements AfterViewInit, OnChanges {
       });
     });
 
+    this.popup = new maplibregl.Popup({
+      closeButton: false,
+      closeOnClick: false,
+    });
+
+    this.map.on('click', 'municipios-layer', (e) => {
+      const feature = e.features?.[0];
+      if (feature) {
+        this.popup
+          .setLngLat(e.lngLat)
+          .setHTML(
+            `
+            <div style="
+              min-width: 100px;
+              padding: 8px 10px 8px 8px; 
+              font-weight: 700;" 
+            >
+              <div>${feature.properties['nombre']}</div>
+              <div>${feature.properties['gasto']}</div>
+            </div>
+            `
+          )
+          .addTo(this.map);
+      }
+    });
+
+    this.map.on('click', (e) => {
+      if (
+        !this.map.queryRenderedFeatures(e.point, {
+          layers: ['municipios-layer'],
+        }).length
+      ) {
+        this.popup.remove();
+      }
+    });
+
     setTimeout(() => {
       this.map.flyTo({
         center: [-0.041325, 39.986355],
@@ -86,18 +129,13 @@ export class MapHeatComponent implements AfterViewInit, OnChanges {
     }, 2000);
   }
 
-  // TODO: hacer que no sea random la asignación de colores
-
-  private assignRandomColors() {
-    const colors = this.ranges.map((r) => r.color);
-    this.geoJsonData = structuredClone(this.geoJsonData); // o JSON.parse(JSON.stringify(...))
+  private assignRandom() {
+    this.geoJsonData = structuredClone(this.geoJsonData);
     this.geoJsonData.features.forEach((feature: any) => {
-      feature.properties.randomColor = this.getRandomColor(colors);
+      const randomIndex = Math.floor(Math.random() * this.ranges.length);
+      const rango = this.ranges[randomIndex];
+      feature.properties.randomColor = rango.color;
+      feature.properties.gasto = rango.gasto;
     });
-  }
-
-  private getRandomColor(colors: string[]): string {
-    const randomIndex = Math.floor(Math.random() * colors.length);
-    return colors[randomIndex];
   }
 }

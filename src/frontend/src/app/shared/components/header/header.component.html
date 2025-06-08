@@ -17,11 +17,11 @@
     <div class="user-info">
       <div class="user-details">
         @if(data$ | async; as data) {
-        <p class="user-name">{{ data.data.users[randomUser()].name }}</p>
+        <p class="user-name">{{ data.data.users[randomUser]?.name }}</p>
         } @else {
         <span class="skeleton-loader"></span>
         } @if(data$ | async; as data) {
-        <p class="user-email">{{ data.data.users[randomUser()].name + '@gmail.com' }}</p>
+        <p class="user-email">{{ data.data.users[randomUser]?.name + '@gmail.com' }}</p>
         } @else {
         <span class="skeleton-loader"></span>
         }
