@@ -99,7 +99,7 @@ export class MapHeatComponent implements AfterViewInit, OnChanges {
               padding: 8px 10px 8px 8px; 
               font-weight: 700;" 
             >
-              <div>${feature.properties['nombre']}</div>
+              <div>${feature.properties['name']}</div>
               <div>${feature.properties['gasto']}</div>
             </div>
             `
@@ -121,7 +121,7 @@ export class MapHeatComponent implements AfterViewInit, OnChanges {
     setTimeout(() => {
       this.map.flyTo({
         center: [-0.041325, 39.986355],
-        zoom: 13.2,
+        zoom: 11.5,
         speed: 1.2,
         curve: 1.5,
         essential: true,
