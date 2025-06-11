@@ -1,19 +1,24 @@
 @if(user(); as user) {
 <header class="menu-header">
-  @if(!isMobile) {
-  <a [routerLink]="'/home'">
-    <div class="logo">
-      <span>AquaHero</span>
+  <div class="left-side">
+    @if(!isMobile) {
+    <a [routerLink]="'/home'">
+      <div class="logo">
+        <img src="./assets/AquaHero_Base.png" class="logo-menu" />
+        <span>AquaHero</span>
+      </div>
+    </a>
+    }@else {
+    <div (click)="showMenu()" class="logo">
+      <img src="./assets/AquaHero_Base.png" class="logo-menu" />
+      <img
+        src="./assets/icons/burger-menu.svg"
+        alt="Menu Desplegable"
+        class="burger-menu"
+      />
     </div>
-  </a>
-  }@else {
-  <img
-    src="./assets/icons/burger-menu.svg"
-    alt="Menu Desplegable"
-    class="burger-menu"
-    (click)="showMenu()"
-  />
-  }
+    }
+  </div>
   <a [routerLink]="'/user'">
     <div class="user-info">
       <div class="user-details">
