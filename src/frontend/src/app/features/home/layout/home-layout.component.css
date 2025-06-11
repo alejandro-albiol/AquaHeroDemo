@@ -14,6 +14,7 @@
 }
 
 .main {
+  margin-top: var(--space-md);
   display: flex;
   justify-content: center;
   width: 100%;
@@ -25,6 +26,17 @@
   max-width: 900px;
 }
 
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.footer {
+  width: 100%;
+}
+
 /* Mobile - pequeño (teléfonos pequeños) */
 @media (max-width: 320px) {
 }
@@ -33,6 +45,9 @@
 @media (max-width: 480px) {
   .main-content {
     padding: 10px;
+  }
+  .sidebar {
+    overflow: scroll;
   }
 }
 

@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   pointer-events: none;
+  z-index: 999999;
 }
 
 .notification-container {
@@ -21,7 +22,7 @@
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-medium);
   position: relative;
-
+  z-index: 999999;
   animation: slideIn 0.4s ease-out;
   transition: transform 0.4s ease, opacity 0.4s ease;
 }

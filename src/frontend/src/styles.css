@@ -14,7 +14,7 @@
 body {
   margin: 0;
   font-family: var(--font-family-base);
-  background-color: var(--color-surface);
+  background: var(--color-surface);
   color: var(--color-text);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -100,7 +100,7 @@ h6 {
   --color-accent: #ffab00;
 
   --color-background: #ffffff;
-  --color-surface: #f4f5f7;
+  --color-surface: linear-gradient(180deg, #f5f9fc 0%, #ffffff 100%);
   --color-border: #dfe1e6;
 
   --color-text: #172b4d;

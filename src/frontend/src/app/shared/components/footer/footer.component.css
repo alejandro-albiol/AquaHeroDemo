@@ -1,6 +1,5 @@
 .footer {
   width: 100%;
-  background-color: var(--color-surface);
   color: var(--color-text-muted);
   text-align: center;
   padding: var(--space-md);
@@ -8,4 +7,11 @@
   bottom: 0;
   left: 0;
   font-size: var(--font-size-sm);
+  background-color: #f5f9fc;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(1, 83, 126, 0.05) 1px,
+    transparent 0
+  );
+  background-size: 20px 20px;
 }

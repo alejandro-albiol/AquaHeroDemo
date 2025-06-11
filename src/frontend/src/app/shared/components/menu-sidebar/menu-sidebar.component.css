@@ -2,6 +2,7 @@
   flex: 1;
   width: 200px;
   max-width: 200px;
+  background: transparent;
 }
 
 .menu-sidebar ul {
@@ -52,11 +53,13 @@
 /* Mobile - estándar (teléfonos) */
 @media (max-width: 480px) {
   .container {
-    position: absolute;
+    position: fixed;
+    top: 78px;
     width: 100%;
-    height: calc(100% - 94px);
-    background-color: var(--color-surface);
+    height: calc(100% - 78px);
     padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
     z-index: 99999;
   }
 }

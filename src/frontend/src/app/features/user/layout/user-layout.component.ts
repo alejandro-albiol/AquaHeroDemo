@@ -18,5 +18,11 @@ import { MenuSidebarComponent } from '@shared/components/menu-sidebar/menu-sideb
   ],
 })
 export class UserLayoutComponent {
-  menuItems = [{ label: 'Settings', icon: 'assets/icons/settings.svg', route: '/user/settings' }];
+  menuItems = [
+    {
+      label: 'Settings',
+      icon: 'assets/icons/settings.svg',
+      route: '/user/settings',
+    },
+  ];
 }

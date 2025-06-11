@@ -1,4 +1,4 @@
-import { Component, HostListener, WritableSignal } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ShowMenuStateService } from '@core/utils/showMenuState.service';
 import { AsyncPipe } from '@angular/common';
