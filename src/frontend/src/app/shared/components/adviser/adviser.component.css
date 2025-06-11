@@ -1,10 +1,17 @@
 .ia-advice-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   background-color: #006aa398;
   border: 2px solid #03618e;
   border-radius: 10px;
   padding: 15px;
   color: var(--color-text-inverse);
   box-shadow: 0 4px 10px rgba(3, 97, 142, 0.3);
+}
+
+.text-card {
   display: flex;
   flex-direction: column;
 }
@@ -33,10 +40,19 @@
   display: inline-block;
   width: 80%;
   height: 1.2em;
-  background: linear-gradient(90deg, #ececec63 25%, #f3f3f363 37%, #ececec63 63%);
+  background: linear-gradient(
+    90deg,
+    #ececec63 25%,
+    #f3f3f363 37%,
+    #ececec63 63%
+  );
   background-size: 400% 100%;
   animation: skeleton-loading 1.2s infinite linear;
   border-radius: 8px;
+}
+
+img {
+  height: 40px;
 }
 
 @keyframes skeleton-loading {
