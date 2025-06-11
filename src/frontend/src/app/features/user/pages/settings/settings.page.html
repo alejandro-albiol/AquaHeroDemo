@@ -1,29 +1,28 @@
-@if(data$ | async; as data) {
+@if(user(); as user) {
 <div class="user-profile">
   <h1>Perfil</h1>
   <form>
     <div class="form-group">
       <label>Nombre</label>
-      <input type="text" [value]="data.data.users[randomUser]?.name" readonly />
+      <input type="text" [value]="user.name" readonly />
     </div>
 
     <div class="form-group">
       <label>Email</label>
-      <input type="email" [value]="data.data.users[randomUser]?.name + '@gmail.com'" readonly />
+      <input type="email" [value]="user.name + '@gmail.com'" readonly />
     </div>
 
     <div class="form-group">
       <label>Cadena de victorias</label>
-      <input type="text" [value]="data.data.users[randomUser]?.streak" readonly />
+      <input type="text" [value]="user.streak" readonly />
     </div>
 
     <div class="form-group">
       <label>Ahorro de agua</label>
-      <input type="text" [value]="data.data.users[randomUser]?.waterSaved" readonly />
+      <input type="text" [value]="user.waterSaved" readonly />
     </div>
 
     <button type="button" (click)="logout()">Cerrar sesión</button>
   </form>
 </div>
-
 }

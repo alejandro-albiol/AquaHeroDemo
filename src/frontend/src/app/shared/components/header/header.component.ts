@@ -1,35 +1,29 @@
 import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ShowMenuStateService } from '@core/utils/showMenuState.service';
-import { AsyncPipe } from '@angular/common';
-import { Observable } from 'rxjs';
-import { MockData } from '@core/services/demo/models/dashboard.model';
-import { DashboardService } from '@core/services/demo/dashboard.service';
-import { RandomUserService } from '@core/utils/randomNumberStat.service';
+import { UserService } from '@core/utils/randomUser.service';
 
 @Component({
   selector: 'app-header',
-  imports: [AsyncPipe, RouterModule],
+  imports: [RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  data$: Observable<MockData>;
-  randomUser: number;
+  user;
 
   isMobile: boolean = false;
 
   constructor(
     private showMenuState: ShowMenuStateService,
-    private readonly dashboardService: DashboardService,
-    private readonly randomUserService: RandomUserService
+    private readonly userService: UserService
   ) {
-    this.randomUser = this.randomUserService.randomUser();
-    this.data$ = this.dashboardService.getData();
+    this.user = this.userService.user;
   }
 
   ngOnInit() {
     this.verificarTamanioPantalla();
+    this.userService.loadRandomUser();
   }
 
   @HostListener('window:resize', ['$event'])

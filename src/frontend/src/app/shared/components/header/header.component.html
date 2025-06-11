@@ -1,3 +1,4 @@
+@if(user(); as user) {
 <header class="menu-header">
   @if(!isMobile) {
   <a [routerLink]="'/home'">
@@ -16,17 +17,17 @@
   <a [routerLink]="'/user'">
     <div class="user-info">
       <div class="user-details">
-        @if(data$ | async; as data) {
-        <p class="user-name">{{ data.data.users[randomUser]?.name }}</p>
-        } @else {
-        <span class="skeleton-loader"></span>
-        } @if(data$ | async; as data) {
-        <p class="user-email">{{ data.data.users[randomUser]?.name + '@gmail.com' }}</p>
-        } @else {
-        <span class="skeleton-loader"></span>
-        }
+        <p class="user-name">{{ user.name }}</p>
+        <p class="user-email">
+          {{ user.name + "@gmail.com" }}
+        </p>
       </div>
-      <img src="assets/icons/person.svg" alt="User Avatar" class="user-avatar" />
+      <img
+        src="assets/icons/person.svg"
+        alt="User Avatar"
+        class="user-avatar"
+      />
     </div>
   </a>
 </header>
+}
