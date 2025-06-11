@@ -1,11 +1,13 @@
 .dashboard-container {
   width: 100%;
+  max-height: calc(100vh - 175px);
 }
 
 .cards-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow: auto;
 }
 
 .card {

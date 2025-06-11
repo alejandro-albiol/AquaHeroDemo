@@ -38,7 +38,7 @@ export class HeaderComponent {
   }
 
   verificarTamanioPantalla() {
-    this.isMobile = window.innerWidth <= 600;
+    this.isMobile = window.innerWidth <= 1023;
   }
 
   showMenu() {

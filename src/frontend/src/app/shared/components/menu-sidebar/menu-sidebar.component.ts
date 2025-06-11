@@ -65,6 +65,6 @@ export class MenuSidebarComponent implements OnInit {
   }
 
   verifySizeScreen() {
-    this.isMobile = window.innerWidth <= 600;
+    this.isMobile = window.innerWidth <= 1023;
   }
 }

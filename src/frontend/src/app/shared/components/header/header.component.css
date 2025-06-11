@@ -71,10 +71,16 @@
 
 /* Tablet - vertical (portrait) */
 @media (min-width: 481px) and (max-width: 767px) {
+  .menu-header {
+    justify-content: space-between;
+  }
 }
 
 /* Tablet - horizontal (landscape) */
 @media (min-width: 768px) and (max-width: 1023px) {
+  .menu-header {
+    justify-content: space-between;
+  }
 }
 
 /* Laptop estándar */

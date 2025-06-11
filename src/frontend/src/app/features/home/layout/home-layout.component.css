@@ -24,6 +24,7 @@
   padding: 0 0 var(--space-lg) var(--space-lg);
   width: 100%;
   max-width: 900px;
+  overflow: auto;
 }
 
 .header {
@@ -46,17 +47,20 @@
   .main-content {
     padding: 10px;
   }
-  .sidebar {
-    overflow: scroll;
-  }
 }
 
 /* Tablet - vertical (portrait) */
 @media (min-width: 481px) and (max-width: 767px) {
+  .main-content {
+    padding: 10px;
+  }
 }
 
 /* Tablet - horizontal (landscape) */
 @media (min-width: 768px) and (max-width: 1023px) {
+  .main-content {
+    padding: 10px;
+  }
 }
 
 /* Laptop estándar */

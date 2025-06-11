@@ -1,3 +1,7 @@
+.container {
+  position: sticky;
+  top: calc(73px + 1rem);
+}
 .menu-sidebar {
   flex: 1;
   width: 200px;
@@ -43,7 +47,7 @@
   margin: 20px 0 20px 0;
   padding: 0 10px 0 10px;
   border-radius: 40%;
-  background-color: var(--color-border);
+  background-color: #656568;
 }
 
 /* Mobile - pequeño (teléfonos pequeños) */
@@ -66,10 +70,30 @@
 
 /* Tablet - vertical (portrait) */
 @media (min-width: 481px) and (max-width: 767px) {
+  .container {
+    position: fixed;
+    top: 78px;
+    width: 100%;
+    height: calc(100% - 78px);
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    z-index: 99999;
+  }
 }
 
 /* Tablet - horizontal (landscape) */
 @media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    position: fixed;
+    top: 78px;
+    width: 40%;
+    height: calc(100% - 78px);
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    z-index: 99999;
+  }
 }
 
 /* Laptop estándar */
