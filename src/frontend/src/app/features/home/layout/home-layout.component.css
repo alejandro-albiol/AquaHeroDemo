@@ -40,6 +40,9 @@
 
 /* Mobile - pequeño (teléfonos pequeños) */
 @media (max-width: 320px) {
+  .main-content {
+    padding: 10px;
+  }
 }
 
 /* Mobile - estándar (teléfonos) */

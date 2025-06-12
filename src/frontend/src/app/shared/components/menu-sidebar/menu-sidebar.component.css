@@ -51,6 +51,16 @@
 
 /* Mobile - pequeño (teléfonos pequeños) */
 @media (max-width: 320px) {
+  .container {
+    position: fixed;
+    top: 78px;
+    width: 100%;
+    height: calc(100% - 78px);
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    z-index: 99999;
+  }
 }
 
 /* Mobile - estándar (teléfonos) */

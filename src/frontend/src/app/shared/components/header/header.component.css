@@ -59,6 +59,9 @@
 
 /* Mobile - pequeño (teléfonos pequeños) */
 @media (max-width: 320px) {
+  .menu-header {
+    justify-content: space-between;
+  }
 }
 
 /* Mobile - estándar (teléfonos) */
