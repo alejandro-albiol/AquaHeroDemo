@@ -23,7 +23,7 @@ export class HeaderComponent {
 
   ngOnInit() {
     this.verificarTamanioPantalla();
-    this.userService.loadRandomUser();
+    
   }
 
   @HostListener('window:resize', ['$event'])

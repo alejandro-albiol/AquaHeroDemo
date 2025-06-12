@@ -100,7 +100,7 @@ export class MapHeatComponent implements AfterViewInit, OnChanges {
               font-weight: 700;" 
             >
               <div>${feature.properties['name']}</div>
-              <div>${feature.properties['gasto']}</div>
+              <div>Consumo: ${feature.properties['gasto']}</div>
             </div>
             `
           )

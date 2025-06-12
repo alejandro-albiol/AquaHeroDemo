@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { NavigationError, Router, RouterOutlet } from '@angular/router';
 import { LoadingService } from '@core/utils/loading.service';
 import { NotificationService } from '@core/utils/notification.service';
+import { UserService } from '@core/utils/randomUser.service';
 import { environment } from '@environments/environment';
 import { LoadingComponent } from '@shared/components/loading/loading.component';
 import { NotificationComponent } from '@shared/components/notification/notification.component';
@@ -21,8 +22,11 @@ export class AppComponent {
 
   constructor(
     private router: Router,
-    private readonly notificationService: NotificationService
-  ) {}
+    private readonly notificationService: NotificationService,
+    private readonly userService: UserService
+  ) {
+    this.userService.loadRandomUser();
+  }
 
   ngOnInit(): void {
     this.isLoading$.subscribe(() => {
